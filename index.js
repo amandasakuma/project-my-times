@@ -10,33 +10,26 @@ fetch(url)
     }
 
     })
-    // })
-    // .then((data) => {
-    //     data.results.forEach((article) => {
-    //         renderNewsFeed(article);
-    //         i++;
-    //     })
+
 function renderNewsFeed(article) {
     // getthe newsfeed container
-    const newsFeedContainer = document.querySelector('#article-feed')
+    const newsFeedContainer = document.querySelector('#article-feed');
 
     //get the newsfeed elements
     ////story card div, headline, img
     let storyCard = document.createElement("div");
-    let headline = document.createElement("p");
+    let headline = document.createElement("h4");
     let img = document.createElement("img");
-
-    
+    let linkurl = document.createElement("a");
+    let urldata = article.url;
     
 
     //[populate the story card with data for headline and image]
-
-    headline.innerText = article.title;
+    linkurl.setAttribute("href", urldata);
+    linkurl.innerHTML = article.title
     let tempimg = article.multimedia[1]; //0-jumbo, 1-normal 2-thumbnail 
     img.src = tempimg.url;
-    console.log(article.multimedia.url);
-    console.log(headline);
-    storyCard.append(headline, img);
+    storyCard.append(linkurl, img);
     newsFeedContainer.append(storyCard);
 
 }
