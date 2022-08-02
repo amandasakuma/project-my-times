@@ -25,11 +25,12 @@ function renderNewsFeed(article) {
 
 
     //[populate the story card with data for headline and image]
+    headline.appendChild(linkurl);
     linkurl.setAttribute("href", urldata);
     linkurl.innerHTML = article.title
     let tempimg = article.multimedia[1]; //0-jumbo, 1-normal 2-thumbnail 
     img.src = tempimg.url;
-    storyCard.append(linkurl, img);
+    storyCard.append(headline, img);
     newsFeedContainer.append(storyCard);
 
 }
