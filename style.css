@@ -1,3 +1,7 @@
+h1 {
+    text-align: center;
+}
+
 .topic {
     padding: 5px;
     background: #aaa;
@@ -6,9 +10,15 @@
     display: inline-block;
     text-align: center;
     cursor: pointer;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .topic.selected {
     background: black;
     color: white
+}
+
+.topic:hover {
+    text-decoration: underline;
 }
