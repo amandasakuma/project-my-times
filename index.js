@@ -1,30 +1,43 @@
-let i = 1; //establish counter for story card in renderNewsFeed
+//let i = 1; //establish counter for story card in renderNewsFeed
 const url = 'https://api.nytimes.com/svc/topstories/v2/home.json?api-key=4pCbIkzrX75qDLPyhvCvGL4ijmyhsWMm'
 init(); //preps topic-bar selection
 
 fetch(url)
     .then(res => res.json())
-    // .then(renderNewsFeed(data))
-    .then((data) => {
-        data.results.forEach((article) => {
-            renderNewsFeed(article);
-            i++;
-        })
-    })
+    .then((data) => { //create a for loop that iterates through the object
+    for(let i=0; i<data.results.length; i++){
+        renderNewsFeed(data.results[i]);
+    }
 
+    })
+    // })
+    // .then((data) => {
+    //     data.results.forEach((article) => {
+    //         renderNewsFeed(article);
+    //         i++;
+    //     })
 function renderNewsFeed(article) {
     // getthe newsfeed container
     const newsFeedContainer = document.querySelector('#article-feed')
 
     //get the newsfeed elements
     ////story card div, headline, img
-    let storyCard = document.querySelector(`#feed-story-card-${i}`)
-    let headline = document.querySelector(`#feed-headline-${i}`)
-    let img = document.querySelector(`#feed-img-${i}`)
+    let storyCard = document.createElement("div");
+    let headline = document.createElement("p");
+    let img = document.createElement("img");
+
+    
+    
 
     //[populate the story card with data for headline and image]
+
     headline.innerText = article.title;
+    let tempimg = article.multimedia[1]; //0-jumbo, 1-normal 2-thumbnail 
+    img.src = tempimg.url;
+    console.log(article.multimedia.url);
     console.log(headline);
+    storyCard.append(headline, img);
+    newsFeedContainer.append(storyCard);
 
 }
 
