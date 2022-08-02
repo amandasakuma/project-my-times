@@ -3,8 +3,9 @@ const url = 'https://api.nytimes.com/svc/topstories/v2/home.json?api-key=4pCbIkz
 fetch(url)
     .then(res => res.json())
     // .then(renderNewsFeed(data))
-    .then((data) => {
-        data.forEach((article) => {
+    .then((data) => { 
+        let arr = data.results;
+        arr.forEach((article) => {
             renderNewsFeed(article)
         })
     })
