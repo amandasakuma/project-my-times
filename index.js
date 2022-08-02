@@ -1,10 +1,11 @@
 let i = 1; //establish counter for story card in renderNewsFeed
 const url = 'https://api.nytimes.com/svc/topstories/v2/home.json?api-key=4pCbIkzrX75qDLPyhvCvGL4ijmyhsWMm'
+init(); //preps topic-bar selection
 
 fetch(url)
     .then(res => res.json())
     // .then(renderNewsFeed(data))
-    .then((data) => { 
+    .then((data) => {
         data.results.forEach((article) => {
             renderNewsFeed(article);
             i++;
@@ -25,4 +26,22 @@ function renderNewsFeed(article) {
     headline.innerText = article.title;
     console.log(headline);
 
+}
+
+//Adds 'click' event to each topic listed on the div id="topic-bar"
+function init() {
+    let allTopics = document.getElementsByClassName("topic")
+    for (let topic of allTopics) {
+        topic.addEventListener('click', topicClicked);
+    }
+}
+//Logs whether a topic is either selected or deselected
+function topicClicked(e) {
+    let topic = e.target;
+    let topicStatus = topic.classList.contains('selected');
+    if (topicStatus) {
+        topic.classList.remove('selected')
+    } else {
+        topic.classList.add('selected')
+    }
 }
