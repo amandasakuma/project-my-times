@@ -1,4 +1,4 @@
-let i = 1;
+let i = 1; //establish counter for story card in renderNewsFeed
 const url = 'https://api.nytimes.com/svc/topstories/v2/home.json?api-key=4pCbIkzrX75qDLPyhvCvGL4ijmyhsWMm'
 
 fetch(url)
@@ -17,12 +17,12 @@ function renderNewsFeed(article) {
 
     //get the newsfeed elements
     ////story card div, headline, img
-    const storyCard1 = document.querySelector(`#feed-story-card-${i}`)
-    const headline1 = document.querySelector(`#feed-headline-${i}`)
-    const img1 = document.querySelector(`#feed-img-${i}`)
+    let storyCard = document.querySelector(`#feed-story-card-${i}`)
+    let headline = document.querySelector(`#feed-headline-${i}`)
+    let img = document.querySelector(`#feed-img-${i}`)
 
     //[populate the story card with data for headline and image]
-    headline1.innerText = article.title;
-    console.log(headline1)
+    headline.innerText = article.title;
+    console.log(headline);
 
 }
