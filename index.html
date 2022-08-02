@@ -15,11 +15,11 @@
         <div id="topic-bar">
 
             <!-- //5 sample buttons -->
-            <span class="topic selected" section="section-topic-one">Topic #1</span>
-            <span class="topic" section="section-topic-two">Topic #2</span>
-            <span class="topic" section="section-topic-three">Topic #3</span>
-            <span class="topic" section="section-topic-four">Topic #4</span>
-            <span class="topic" section="section-topic-five">Topic #5</span>
+            <span class="topic selected" section="section">Topic #1</span>
+            <span class="topic" section="section">Topic #2</span>
+            <span class="topic" section="section">Topic #3</span>
+            <span class="topic" section="section">Topic #4</span>
+            <span class="topic" section="section">Topic #5</span>
 
             <!-- //reset button -->
             <button>Reset Selections</button>
@@ -33,7 +33,6 @@
         </div>
         <div id="article-feed">
             <!-- make class of 'feed story' for each story -->
-           <!-- 
             <div id="feed-story-card-1">
                 <p id="feed-headline-1"></p>
                 <img id="feed-img-1" src="">
@@ -45,7 +44,6 @@
             <div id="feed-story-card-3">
                 <p id="feed-headline-3"></p>
                 <img id="feed-img-3" src="">
-            -->
             </div>
         </div>
     </div>
@@ -53,6 +51,14 @@
         <toggle id="collapse-toggle">Collapse Section</toggle>
         <div id="archive-header">
             <h2>Archive Story Randomizer</h2>
+            <form id=”archive form”>
+                <div>
+                    <label for=”date”>Date</label>
+                    <input type=”text” id=”date” />
+                </div>
+                <button>Submit</button>
+            </form>
+
             <!-- //Date input button here (year, month) -->
         </div>
         <div id="archive-story-bar">

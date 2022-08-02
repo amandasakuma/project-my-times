@@ -5,9 +5,9 @@ init(); //preps topic-bar selection
 fetch(url)
     .then(res => res.json())
     .then((data) => { //create a for loop that iterates through the object
-    for(let i=0; i<data.results.length; i++){
-        renderNewsFeed(data.results[i]);
-    }
+        for (let i = 0; i < data.results.length; i++) {
+            renderNewsFeed(data.results[i]);
+        }
 
     })
 
@@ -22,7 +22,7 @@ function renderNewsFeed(article) {
     let img = document.createElement("img");
     let linkurl = document.createElement("a");
     let urldata = article.url;
-    
+
 
     //[populate the story card with data for headline and image]
     linkurl.setAttribute("href", urldata);
