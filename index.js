@@ -32,6 +32,7 @@ function renderNewsFeed(article) {
     img.src = tempimg.url;
     storyCard.append(headline, img);
     newsFeedContainer.append(storyCard);
+    storyCard.setAttribute('class', article.section);
 
 }
 
