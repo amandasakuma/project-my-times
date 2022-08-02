@@ -1,58 +1,71 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr"> //dir=ltr sets left to right reading of 
-    <head>
-        <meta charset="utf-8">
-        <title>MyTimes</title>
-        <link rel="stylesheet" href="index.css">
-        <script type="text/javascript" src="index.js"></script>
-    </head>
-    <body>
-        <div id="stories-filter">
-            <div id="topic-bar">
-                //5 sample buttons
-                <button>Reset Selections</button>   //reset button
-            </div>
-            <div id="feature-story">
-                <img id="feature-image" src="">
-                <div id="feature-info-container">
-                    <h4 id="feature-headline"></h4>
-                    <p id="feature-abstract"></p>
-                </div>
-            </div>
-            <div id="article-feed">
-                <div id="feed-story-card-1">
-                    <p id="feed-headline-1"></p>
-                    <img id="feed-img-1" src="">
-                </div>
-                <div id="feed-story-card-2">
-                    <p id="feed-headline-2"></p>
-                    <img id="feed-img-2" src="">
-                </div>
-                <div id="feed-story-card-3">
-                    <p id="feed-headline-3"></p>
-                    <img id="feed-img-3" src="">
-                </div>
+<!-- //dir=ltr sets left to right reading of  -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>MyTimes</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="index.js"></script>
+</head>
+
+<body>
+    <div id="stories-filter">
+        <div id="topic-bar">
+
+            <!-- //5 sample buttons -->
+            <span class="topic selected" section="section-topic-one">Topic #1</span>
+            <span class="topic" section="section-topic-two">Topic #2</span>
+            <span class="topic" section="section-topic-three">Topic #3</span>
+            <span class="topic" section="section-topic-four">Topic #4</span>
+            <span class="topic" section="section-topic-five">Topic #5</span>
+
+            <!-- //reset button -->
+            <button>Reset Selections</button>
+        </div>
+        <div id="feature-story">
+            <img id="feature-image" src="">
+            <div id="feature-info-container">
+                <h4 id="feature-headline"></h4>
+                <p id="feature-abstract"></p>
             </div>
         </div>
-        <div id="archive-randomizer">   
-            <toggle id="collapse-toggle">Collapse Section</toggle>
-            <div id="archive-header">
-                <h2>Archive Story Randomizer</h2>
-                //Date input button here (year, month)
+        <div id="article-feed">
+            <!-- make class of 'feed story' for each story -->
+            <div id="feed-story-card-1">
+                <p id="feed-headline-1"></p>
+                <img id="feed-img-1" src="">
             </div>
-            <div id="archive-story-bar">
-                <div id="archive-story-card-1">
-                    //title with url hyperlink
-                </div>
-                <div id="archive-story-card-2">
-                    //title with url hyperlink                    
-                </div>
-                <div id="archive-story-card-3">
-                    //title with url hyperlink                    
-                </div>
+            <div id="feed-story-card-2">
+                <p id="feed-headline-2"></p>
+                <img id="feed-img-2" src="">
             </div>
+            <div id="feed-story-card-3">
+                <p id="feed-headline-3"></p>
+                <img id="feed-img-3" src="">
+            </div>
+        </div>
+    </div>
+    <div id="archive-randomizer">
+        <toggle id="collapse-toggle">Collapse Section</toggle>
+        <div id="archive-header">
+            <h2>Archive Story Randomizer</h2>
+            <!-- //Date input button here (year, month) -->
+        </div>
+        <div id="archive-story-bar">
+            <div id="archive-story-card-1">
+                <!-- //title with url hyperlink -->
+            </div>
+            <div id="archive-story-card-2">
+                <!-- //title with url hyperlink                     -->
+            </div>
+            <div id="archive-story-card-3">
+                <!-- //title with url hyperlink                     -->
+            </div>
+        </div>
 
-        </div>    
+    </div>
 
-    </body>
+</body>
+
 </html>
