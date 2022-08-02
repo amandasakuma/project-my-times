@@ -1,0 +1,14 @@
+.topic {
+    padding: 5px;
+    background: #aaa;
+    border: 1px solid #000;
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.topic.selected {
+    background: black;
+    color: white
+}
