@@ -35,7 +35,7 @@ function init() {
         topic.addEventListener('click', topicClicked);
     }
 }
-//Logs whether a topic is either selected or deselected
+//Checks whether or not a topic is selected
 function topicClicked(e) {
     let topic = e.target;
     let topicStatus = topic.classList.contains('selected');
@@ -43,5 +43,19 @@ function topicClicked(e) {
         topic.classList.remove('selected')
     } else {
         topic.classList.add('selected')
+    }
+}
+//INCOMPLETE FUNCTION BELOW///
+//To display stories for only the topics selected...
+function displayStories() {
+    let allSelectedTopics = document.getElementsByClassName("selected")
+    for (let topic of allSelectedTopics) {
+        let section = button.getAttribute('section');
+
+        //STILL TO DO:
+        //get story card
+        //iterate over 'sections' key from our api data to only retrieve topics that === what we want
+        //add populated story card to newsfeed div
+
     }
 }
