@@ -4,8 +4,7 @@ fetch(url)
     .then(res => res.json())
     // .then(renderNewsFeed(data))
     .then((data) => { 
-        let arr = data.results;
-        arr.forEach((article) => {
+        data.results.forEach((article) => {
             renderNewsFeed(article)
         })
     })
