@@ -3,26 +3,26 @@ h1 {
     font-size: 60px;
 }
 
-#filter {
-    justify-content: space-evenly;
-    align-items: right;
+#topic-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .topic {
     padding: 5px;
-    background: #aaa;
+    background: #F1E5D8;
     border: 1px solid #000;
     width: 100px;
     display: inline-block;
     text-align: center;
     cursor: pointer;
-    justify-content: space-evenly;
-    align-items: center;
+    margin: 0 10px;
 }
 
 
 .topic.selected {
-    background: black;
+    background: #6096AA;
     color: white
 }
 
@@ -30,23 +30,12 @@ h1 {
     text-decoration: underline;
 }
 
-/* #article-feed {
-    display: inline-block;
-    align-content: center;
-} */
-
 #article-feed h4 {
-    font-size: 18px;
+    font-size: 16px;
 }
 
-/* #article-feed img {
-    width: 250px;
-    align-content: right;
-} */
-
-
-#feature-story h4 {
-    font-size: 20px;
+#feature-headline {
+    font-size: 22px;
 }
 
 
@@ -69,5 +58,6 @@ h1 {
 
 #article-feed {
     padding: 20px;
+    display: block;
     grid-area: 1 / 4 / 6 / 6;
 }

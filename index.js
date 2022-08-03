@@ -1,20 +1,23 @@
 //let i = 1; //establish counter for story card in renderNewsFeed
-const url = 'https://api.nytimes.com/svc/topstories/v2/home.json?api-key=4pCbIkzrX75qDLPyhvCvGL4ijmyhsWMm'
+const newsFeedContainer = document.querySelector('#article-feed');
+// let storyList = []
 init(); //preps topic-bar selection
 
-fetch(url)
-    .then(res => res.json())
-    .then((data) => { //create a for loop that iterates through the object
-        for (let i = 0; i < data.results.length; i++) {
-            renderNewsFeed(data.results[i]);
-        }
+function fetchFeed(section) {
+    const url = `https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=4pCbIkzrX75qDLPyhvCvGL4ijmyhsWMm`
+    fetch(url)
+        .then(res => res.json())
+        .then((data) => { //create a for loop that iterates through the object
+            for (let i = 0; i < data.results.length; i++) {
+                // storyList.push(data.results[i])
+                renderNewsFeed(data.results[i], section);
+            }
 
-    })
+        })
+}
 
-function renderNewsFeed(article) {
-    // getthe newsfeed container
-    const newsFeedContainer = document.querySelector('#article-feed');
 
+function renderNewsFeed(article, section) {
     //get the newsfeed elements
     ////story card div, headline, img
     let storyCard = document.createElement("div");
@@ -43,6 +46,7 @@ function init() {
     for (let topic of allTopics) {
         topic.addEventListener('click', topicClicked);
     }
+    fetchFeed('home')
 }
 //Checks whether or not a topic is selected
 function topicClicked(e) {
@@ -53,18 +57,27 @@ function topicClicked(e) {
     } else {
         topic.classList.add('selected')
     }
+    displayStories()
 }
+
 //INCOMPLETE FUNCTION BELOW///
 //To display stories for only the topics selected...
 function displayStories() {
+    //resetting the story list
+    newsFeedContainer.innerText = ''
+    // storyList = []
     let allSelectedTopics = document.getElementsByClassName("selected")
     for (let topic of allSelectedTopics) {
-        let section = button.getAttribute('section');
+        let section = topic.getAttribute('section');
 
-        //STILL TO DO:
-        //get story card
-        //iterate over 'sections' key from our api data to only retrieve topics that === what we want
-        //add populated story card to newsfeed div
-
+        fetchFeed(section)
     }
+
+    // for (let story of storyList) {
+    //     // for (let i = 0; i < 10; i++) {
+    //     console.log(story)
+    //     // renderNewsFeed(storyList[i]);
+
+    // }
+
 }
