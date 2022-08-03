@@ -1,5 +1,11 @@
 h1 {
     text-align: center;
+    font-size: 60px;
+}
+
+#filter {
+    justify-content: space-evenly;
+    align-items: right;
 }
 
 .topic {
@@ -10,9 +16,10 @@ h1 {
     display: inline-block;
     text-align: center;
     cursor: pointer;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 }
+
 
 .topic.selected {
     background: black;
@@ -21,4 +28,46 @@ h1 {
 
 .topic:hover {
     text-decoration: underline;
+}
+
+/* #article-feed {
+    display: inline-block;
+    align-content: center;
+} */
+
+#article-feed h4 {
+    font-size: 18px;
+}
+
+/* #article-feed img {
+    width: 250px;
+    align-content: right;
+} */
+
+
+#feature-story h4 {
+    font-size: 20px;
+}
+
+
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.feature-story {
+    padding: 40px;
+    grid-area: 1 / 1 / 5 / 4;
+}
+
+.feature-info-container {
+    grid-area: 5 / 1 / 6 / 4;
+}
+
+#article-feed {
+    padding: 20px;
+    grid-area: 1 / 4 / 6 / 6;
 }

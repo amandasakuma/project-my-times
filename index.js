@@ -19,7 +19,7 @@ function renderNewsFeed(article) {
     ////story card div, headline, img
     let storyCard = document.createElement("div");
     let headline = document.createElement("h4");
-    let img = document.createElement("img");
+    // let img = document.createElement("img");
     let linkurl = document.createElement("a");
     let urldata = article.url;
 
@@ -28,9 +28,10 @@ function renderNewsFeed(article) {
     headline.appendChild(linkurl);
     linkurl.setAttribute("href", urldata);
     linkurl.innerHTML = article.title
-    let tempimg = article.multimedia[1]; //0-jumbo, 1-normal 2-thumbnail 
-    img.src = tempimg.url;
-    storyCard.append(headline, img);
+    // let tempimg = article.multimedia[1]; //0-jumbo, 1-normal 2-thumbnail 
+    // img.src = tempimg.url;
+    storyCard.append(headline);
+    // storyCard.append(img)
     newsFeedContainer.append(storyCard);
     storyCard.setAttribute('class', article.section);
 
