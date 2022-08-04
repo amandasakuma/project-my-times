@@ -12,7 +12,7 @@ function fetchFeed(section) {
     fetch(`${url}/${section}${apiKey}`)
         .then(res => res.json())
         .then((data) => { //create a for loop that iterates through the object
-            console.log(data)
+            // console.log(data)
             for (let i = 0; i < data.results.length; i++) {
                 renderNewsFeed(data.results[i], section, i);
             }
@@ -85,6 +85,7 @@ function topicClicked(e) {
     displayStories()
 }
 
+
 //INCOMPLETE FUNCTION BELOW///
 //To display stories for only the topics selected...
 function displayStories() {
@@ -92,7 +93,7 @@ function displayStories() {
     newsFeedContainer.innerText = ''
     // storyList = []
     let allSelectedTopics = document.getElementsByClassName("selected")
-    for (let topic of allSelectedTopics) {
+    for (topic of allSelectedTopics) {
         let section = topic.getAttribute('section');
 
         fetchFeed(section)
@@ -108,3 +109,16 @@ function displayStories() {
     //function politicsSection(section)
 
 }
+
+function renderSearchFeed() {
+
+}
+
+// const form = document.getElementById('search-form')
+// form.addEventListener('click', (e) => {
+//     e.preventDefault();
+
+//     const searchFeed = document.querySelector('#search-feed');
+  
+
+// })
