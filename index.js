@@ -43,10 +43,9 @@ function renderNewsFeed(article, section, id) {
     }
 
 }
-
-
-
-
+document.addEventListener('keyup', function (e) {
+    window.location.reload();
+});
 
 function renderFeature(article) {
 
@@ -104,27 +103,4 @@ function displayStories() {
         fetchFeed(section)
     }
 }
-
-
-// function topicClicked(e) {
-
-//     // 1. First we need to remove the "selected" class from all the buttons
-//     let topicButtons = document.querySelectorAll('.topic');
-//     // remove the "selected" class from all buttons
-//     topicButtons.forEach(topic => {
-//         topic.classList.remove('selected');
-//     });
-
-//     // 2. Next we need to add the "selected" class to the clicked button
-//     let topic = e.target;
-//     topic.classList.add('selected')
-
-//     // 3. We need to clear the newsfeed container
-//     newsFeedContainer.innerText = ''
-
-//     // 4. Now we need to fetch the feed, with the section that was clicked
-//     let clickedSection = e.target.attribute("section")
-//     fetchFeed(clickedSection)
-// }
-
 
