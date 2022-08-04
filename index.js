@@ -17,7 +17,6 @@ function fetchFeed(section) {
                 renderNewsFeed(data.results[i], section, i);
             }
         })
-
 }
 
 function renderNewsFeed(article, section, id) {
@@ -38,10 +37,16 @@ function renderNewsFeed(article, section, id) {
 
     storyCard.addEventListener('click', (e) => {
         renderFeature(e.target)
-
     })
+    if (id == 0) {
+        renderFeature(headline)
+    }
 
 }
+
+
+
+
 
 function renderFeature(article) {
 
@@ -91,34 +96,35 @@ function topicClicked(e) {
 function displayStories() {
     //resetting the story list
     newsFeedContainer.innerText = ''
-    // storyList = []
+
     let allSelectedTopics = document.getElementsByClassName("selected")
     for (topic of allSelectedTopics) {
         let section = topic.getAttribute('section');
 
         fetchFeed(section)
     }
-
-    // for (let story of storyList) {
-    //     // for (let i = 0; i < 10; i++) {
-    //     console.log(story)
-    //     // renderNewsFeed(storyList[i]);
-
-    // }
-    //data.results.find()
-    //function politicsSection(section)
-
 }
 
-function renderSearchFeed() {
 
-}
+// function topicClicked(e) {
 
-// const form = document.getElementById('search-form')
-// form.addEventListener('click', (e) => {
-//     e.preventDefault();
+//     // 1. First we need to remove the "selected" class from all the buttons
+//     let topicButtons = document.querySelectorAll('.topic');
+//     // remove the "selected" class from all buttons
+//     topicButtons.forEach(topic => {
+//         topic.classList.remove('selected');
+//     });
 
-//     const searchFeed = document.querySelector('#search-feed');
-  
+//     // 2. Next we need to add the "selected" class to the clicked button
+//     let topic = e.target;
+//     topic.classList.add('selected')
 
-// })
+//     // 3. We need to clear the newsfeed container
+//     newsFeedContainer.innerText = ''
+
+//     // 4. Now we need to fetch the feed, with the section that was clicked
+//     let clickedSection = e.target.attribute("section")
+//     fetchFeed(clickedSection)
+// }
+
+
