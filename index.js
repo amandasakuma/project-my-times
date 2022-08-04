@@ -1,42 +1,66 @@
 //let i = 1; //establish counter for story card in renderNewsFeed
+// const url = `https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=4pCbIkzrX75qDLPyhvCvGL4ijmyhsWMm`
+const url = 'https://api.nytimes.com/svc/topstories/v2'
+const apiKey = '.json?api-key=4pCbIkzrX75qDLPyhvCvGL4ijmyhsWMm'
+let clickedStory = 0
 const newsFeedContainer = document.querySelector('#article-feed');
-// let storyList = []
+
 init(); //preps topic-bar selection
 
+
 function fetchFeed(section) {
-    const url = `https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=4pCbIkzrX75qDLPyhvCvGL4ijmyhsWMm`
-    fetch(url)
+    fetch(`${url}/${section}${apiKey}`)
         .then(res => res.json())
         .then((data) => { //create a for loop that iterates through the object
+            console.log(data)
             for (let i = 0; i < data.results.length; i++) {
-                // storyList.push(data.results[i])
-                renderNewsFeed(data.results[i], section);
+                renderNewsFeed(data.results[i], section, i);
             }
-
         })
+
 }
 
+function renderNewsFeed(article, section, id) {
+    const storyCard = document.createElement("div");
+    const headline = document.createElement("h4");
+    // const img = document.createElement("img");
 
-function renderNewsFeed(article, section) {
-    //get the newsfeed elements
-    ////story card div, headline, img
-    let storyCard = document.createElement("div");
-    let headline = document.createElement("h4");
-    // let img = document.createElement("img");
-    let linkurl = document.createElement("a");
-    let urldata = article.url;
-
-
-    //[populate the story card with data for headline and image]
-    headline.appendChild(linkurl);
-    linkurl.setAttribute("href", urldata);
-    linkurl.innerHTML = article.title
-    // let tempimg = article.multimedia[1]; //0-jumbo, 1-normal 2-thumbnail 
-    // img.src = tempimg.url;
-    storyCard.append(headline);
-    // storyCard.append(img)
+    headline.innerText = article.title
     newsFeedContainer.append(storyCard);
-    storyCard.setAttribute('class', article.section);
+    headline.setAttribute('class', article.section);
+    headline.setAttribute('url', article.url);
+    headline.setAttribute('headline', article.title);
+    headline.setAttribute('img', article.multimedia[1].url); //0-jumbo, 1-normal 2-thumbnail
+    headline.setAttribute('abstract', article.abstract);
+    storyCard.setAttribute('id', `card${id}`)
+
+    storyCard.append(headline);
+
+    storyCard.addEventListener('click', (e) => {
+        renderFeature(e.target)
+
+    })
+
+}
+
+function renderFeature(article) {
+
+    const featureHed = document.querySelector('#feature-headline')
+    const featureLink = document.querySelector("#feature-link");
+    const featureImage = document.querySelector('#feature-image')
+
+    const featureInfo = document.querySelector('.feature-info-container')
+    const featureAbstract = document.querySelector('#feature-abstract')
+
+    let urldata = article.getAttribute('url');
+
+    featureLink.setAttribute("href", urldata);
+    featureLink.innerHTML = article.getAttribute('headline')
+    featureImage.src = article.getAttribute('img');
+
+    featureAbstract.innerText = article.getAttribute('abstract');
+
+    featureInfo.append(featureImage, featureHed, featureAbstract)
 
 }
 
@@ -48,6 +72,7 @@ function init() {
     }
     fetchFeed('home')
 }
+
 //Checks whether or not a topic is selected
 function topicClicked(e) {
     let topic = e.target;
@@ -79,5 +104,7 @@ function displayStories() {
     //     // renderNewsFeed(storyList[i]);
 
     // }
+    //data.results.find()
+    //function politicsSection(section)
 
 }
