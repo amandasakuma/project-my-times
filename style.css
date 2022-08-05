@@ -21,7 +21,6 @@ h1 {
 .topic {
     display: inline-block;
     padding: 0.3em 1.2em;
-    /* margin: 0 0.3em 0.3em 0; */
     margin: 0 15px 0.3em 15px;
     border-radius: 2em;
     box-sizing: border-box;
@@ -74,6 +73,7 @@ h1 {
     overflow: scroll;
     /* font-family: 'Playfair Display', serif; */
     font-size: 16px;
+    cursor: pointer;
 }
 
 #article-feed div:hover {

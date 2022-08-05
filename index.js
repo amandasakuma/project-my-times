@@ -79,28 +79,25 @@ function init() {
 
 //Checks whether or not a topic is selected
 function topicClicked(e) {
-    let topic = e.target;
-    let topicStatus = topic.classList.contains('selected');
-    if (topicStatus) {
-        topic.classList.remove('selected')
-    } else {
-        topic.classList.add('selected')
-    }
+    let previousTopic = document.querySelector('.selected')
+    previousTopic.classList.remove('selected')
+
+    let newTopic = e.target;
+    newTopic.classList.add('selected')
+
     displayStories()
 }
 
 
-//INCOMPLETE FUNCTION BELOW///
 //To display stories for only the topics selected...
 function displayStories() {
     //resetting the story list
     newsFeedContainer.innerText = ''
 
-    let allSelectedTopics = document.getElementsByClassName("selected")
-    for (topic of allSelectedTopics) {
-        let section = topic.getAttribute('section');
+    let selectedTopic = document.querySelector(".selected")
+    let section = selectedTopic.getAttribute('section');
 
-        fetchFeed(section)
-    }
+    fetchFeed(section)
+
 }
 
