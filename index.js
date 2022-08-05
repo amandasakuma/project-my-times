@@ -7,17 +7,33 @@ const newsFeedContainer = document.querySelector('#article-feed');
 
 init(); //preps topic-bar selection
 
-
-function fetchFeed(section) {
-    fetch(`${url}/${section}${apiKey}`)
-        .then(res => res.json())
-        .then((data) => { //create a for loop that iterates through the object
-            // console.log(data)
-            for (let i = 0; i < data.results.length; i++) {
-                renderNewsFeed(data.results[i], section, i);
-            }
-        })
+async function fetchFeed(section) {
+    try {
+        const res = await fetch(`${url}/${section}${apiKey}`)
+        const data = await res.json()
+        for (let i = 0; i < data.results.length; i++) {
+            renderNewsFeed(data.results[i], section, i);
+        }
+    }
+    catch (err) {
+        console.log(err);
+    }
 }
+//RIP .then
+//a lover, a fetcher, a friend
+// August 2022-August 2022
+
+// function fetchFeed(section) {
+//     fetch(`${url}/${section}${apiKey}`)
+//         .then(res => res.json())
+//         .then((data) => { //create a for loop that iterates through the object
+//             // console.log(data)
+//             for (let i = 0; i < data.results.length; i++) {
+//                 renderNewsFeed(data.results[i], section, i);
+//             }
+//         })
+// }
+
 
 function renderNewsFeed(article, section, id) {
     const storyCard = document.createElement("div");
