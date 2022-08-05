@@ -4,6 +4,9 @@ by Amanda Sakuma and Danny Lucas
 
 Project description: MyTimes
 
+API from https://developer.nytimes.com/ big shoutout to them, but big shoutout to us for putting that thang to work.
+
+
 The world can be so bleak...we are all painfully aware of all the ongoing global conflicts, health crises, and crime going on around us.  Why not personalize your New York Times newsfeed with the stories that don't drag you down?
 
 MyTimes allows users to filter through NYT articles so they only see the stories and topics of their choosing.  
